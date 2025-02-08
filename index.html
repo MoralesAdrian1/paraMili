@@ -114,6 +114,16 @@
         .container.open .letter {
             transform: translate(-50%, -100%) scale(1);
         }
+        #video-container {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+        video {
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body>
@@ -128,6 +138,14 @@
             </div>
         </div>
     </div>
+
+    <div id="video-container">
+        <video id="love-video" controls>
+            <source src="chido.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de video.
+        </video>
+    </div>
+
     <script>
         let step = 0;
         document.getElementById("letter-container").addEventListener("click", function() {
@@ -160,6 +178,13 @@
                 document.body.appendChild(heart);
                 setTimeout(() => { heart.remove(); }, 3000);
             }
+
+            // Mostrar y reproducir el video
+            let videoContainer = document.getElementById("video-container");
+            let video = document.getElementById("love-video");
+
+            videoContainer.style.display = "block";
+            video.play();
         });
     </script>
 </body>
